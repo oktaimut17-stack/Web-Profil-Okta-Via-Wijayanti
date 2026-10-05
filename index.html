@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Saya</title>
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==================== VARIABLE & RESET ==================== */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #eef5ff 0%, #d5e7fd 50%, #c1d9f8 100%);
+      --primary-blue: #2563eb;
+      --primary-hover: #1d4ed8;
+      --soft-blue-card: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.9);
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --accent-glow: rgba(59, 130, 246, 0.25);
+      --shadow-soft: 0 10px 30px -5px rgba(37, 99, 235, 0.1);
+      --radius: 20px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ==================== NAVBAR ==================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.2rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(238, 245, 255, 0.85);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-blue);
+    }
+
+    /* ==================== CONTAINER & SECTIONS ==================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 6rem 0 3rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 3.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* ==================== HERO SECTION ==================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .badge-intro {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 50px;
+      color: var(--primary-blue);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      color: var(--primary-blue);
+    }
+
+    .hero-description {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: white;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-dark);
+      border: 2px solid rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-outline:hover {
+      background: rgba(37, 99, 235, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Foto Profile Frame */
+    .photo-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 280px;
+      height: 350px;
+      border-radius: 30px;
+      overflow: hidden;
+      background: white;
+      box-shadow: var(--shadow-soft), 0 0 40px var(--accent-glow);
+      border: 4px solid white;
+      transition: transform 0.4s ease;
+    }
+
+    .photo-frame:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Decorative Shapes */
+    .shape-1 {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(37, 99, 235, 0.15);
+      border-radius: 50%;
+      top: -20px;
+      right: -20px;
+      z-index: -1;
+      filter: blur(20px);
+    }
+
+    /* ==================== GLASS CARD ==================== */
+    .glass-card {
+      background: var(--soft-blue-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-soft);
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.15);
+    }
+
+    /* ==================== ABOUT SECTION ==================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .info-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .info-list i {
+      color: var(--primary-blue);
+      font-size: 1.1rem;
+    }
+
+    /* ==================== SKILLS SECTION ==================== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--primary-blue);
+      border-radius: 10px;
+      transition: width 1s ease;
+    }
+
+    /* ==================== PROJECTS SECTION ==================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-img {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #a5c7f9, #78aef8);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 8px;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 4px 12px;
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--primary-blue);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* ==================== CONTACT & FOOTER ==================== */
+    .contact-card {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: white;
+      color: var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      background: var(--primary-blue);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: 4rem;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .hero-grid, .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .photo-frame {
+        width: 220px;
+        height: 280px;
+      }
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <i class="fa-solid font-code"></i> Okta Via Wijayanti
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#skills">Keahlian</a></li>
+      <li><a href="#projects">Proyek</a></li>
+      <li><a href="#certificate">Certificate</a></li>
+      <li><a href="#contact">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="badge-intro">
+            <i class="fa-solid fa-sparkles"></i> Selamat Datang di Web Portofolio Saya
+          </div>
+          <h1 class="hero-title">Halo, Saya <span>Web Developer</span></h1>
+          <p class="hero-description">
+            Siswa Rekayasa Perangkat Lunak (RPL) yang berfokus pada pembuatan tampilan web modern, rapi, dan responsif dengan kombinasi warna aesthetic.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-briefcase"></i> Lihat Proyek
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+            </a>
+          </div>
+        </div>
+
+        <!-- FOTO PROFIL -->
+        <div class="photo-wrapper">
+          <div class="shape-1"></div>
+          <div class="photo-frame">
+            <!-- Ganti foto-kamu.jpg dengan nama file fotomu -->
+            <img src="3.jpeg" alt="Foto Profil Saya">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">Tentang Saya</h2>
+      <p class="section-subtitle">Mengenal lebih dekat latar belakang dan minat saya</p>
+      
+      <div class="about-grid">
+        <div class="glass-card">
+          <h3><i class="fa-solid fa-user-gear" style="color: var(--primary-blue);"></i> Profil Ringkas</h3>
+          <p style="margin-top: 1rem; color: var(--text-muted);">
+            Saya memiliki ketertarikan tinggi dalam pemrograman web dan desain antarmuka (*UI/UX*). Selalu antusias untuk mempelajari teknologi baru dan mengasah kemampuan coding.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3><i class="fa-solid fa-address-card" style="color: var(--primary-blue);"></i> Informasi Kontak</h3>
+          <ul class="info-list">
+            <li><i class="fa-solid fa-graduation-cap"></i> SMKN 8 Jember - Jurusan RPL</li>
+            <li><i class="fa-solid fa-location-dot"></i> Jember, Jawa Timur, Indonesia</li>
+            <li><i class="fa-solid fa-envelope"></i>oktaimut17@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Keahlian Utama</h2>
+      <p class="section-subtitle">Teknologi dan kemampuan yang terus saya kembangkan</p>
+
+      <div class="skills-grid">
+        <div class="glass-card">
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>HTML & CSS</span>
+              <span>85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Bootstrap / Tailwind CSS</span>
+              <span>80%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card">
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>PHP & MySQL</span>
+              <span>75%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>JavaScript (Basic)</span>
+              <span>70%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 70%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Proyek Portofolio</h2>
+      <p class="section-subtitle">Beberapa hasil karya web yang pernah saya selesaikan</p>
+
+      <div class="projects-grid">
+        <!-- Card Proyek 1 -->
+              <div class="project-card glass-card">
+        <div class="project-img">
+          <img src="11.png" alt="Landing Page Hijab" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h3>Landing Page HijabOktvyaa</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">
+          Website landing page toko online hijab dengan desain modern, warna pastel yang aesthetic, dan tampilan responsif.
+        </p>
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">PHP</span>
+          <span class="tag">Bootstrap</span>
+        </div>
+      </div>
+
+              <!-- Card Proyek: Sistem Informasi Data Guru & Siswa -->
+    <div class="glass-card project-card">
+      <!-- Bingkai Gambar -->
+      <div style="width: 100%; height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 1.2rem; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; padding: 8px;">
+        <img src="22..png" alt="Aplikasi Data Guru SMK" style="width: 100%; height: 100%; object-fit: contain;">
+      </div>
+      
+      <!-- Deskripsi Proyek -->
+      <h3>Sistem Informasi Data Guru & Siswa SMK</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">
+        Aplikasi berbasis web untuk pengelolaan data akademis sekolah, dilengkapi fitur pencarian data serta manipulasi data (CRUD) dengan database MySQL.
+      </p>
+      
+      <!-- Tag Bahasa Pemrograman -->
+      <div class="project-tags">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">Bootstrap</span>
+        <span class="tag">CRUD</span>
+      </div>
+    </div>
+
+          <!-- Card Proyek: Web Profile Jurusan RPL -->
+    <div class="glass-card project-card">
+      <!-- Bingkai Gambar Full -->
+      <div style="width: 100%; height: 180px; border-radius: 12px; overflow: hidden; margin-bottom: 1.2rem; background-color: #f1f5f9;">
+        <img src="33.png" alt="Web Profile Jurusan RPL" style="width: 100%; height: 100%; object-fit: cover; object-position: top;">
+      </div>
+      
+      <!-- Deskripsi Proyek -->
+      <h3>Web Profile Jurusan RPL</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 6px;">
+        Situs web profil interaktif yang menyajikan informasi lengkap tentang program keahlian Rekayasa Perangkat Lunak, visi, misi, dan keunggulan jurusan.
+      </p>
+      
+      <!-- Tag Teknologi -->
+      <div class="project-tags">
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Bootstrap</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Sertifikat -->
+    <section id="certificate" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Sertifikat & Lisensi Resmi</h2>
+                <p class="section-subtitle">Bukti fisik sertifikasi keahlian terverifikasi dari Getskill.id</p>
+            </div>
+            <div class="row g-4">
+              
+                
+                <!-- Sertifikat 1: Bootstrap -->
+                <div class="col-md-6">
+                    <div class="card card-custom h-100">
+                        <div class="cert-img-container">
+                            <img src="sertifikat2.png" alt="Sertifikat Bootstrap" class="cert-img">
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="cert-badge">Getskill.id</span>
+                                    <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>Berlaku s.d. 04 Mei 2029</small>
+                                </div>
+                                <h5 class="card-title fw-bold text-dark mt-2">Pemrograman Front End Web dengan Bootstrap</h5>
+                                <p class="card-text text-secondary small mb-1">Penerima: <strong>Okta Via Wijayanti</strong></p>
+                                <p class="card-text text-secondary small">No. Sertifikat: <code>12202605040844</code></p>
+                            </div>
+                            <div class="mt-3 text-end border-top pt-3">
+                                <a href="https://getskill.id/certificate/12202605040844" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill fw-bold">
+                                    <i class="fas fa-check-circle me-1"></i>
+                                    <div class="project-tags"> 
+                                      <span class="tag">Verifikasi Resmi</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sertifikat 2: Java -->
+                <div class="col-md-6">
+                    <div class="card card-custom h-100">
+                        <div class="cert-img-container">
+                            <img src="sertifikat1.png" alt="Sertifikat Java" class="cert-img">
+                        </div>
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="cert-badge">Getskill.id</span>
+                                    <small class="text-muted"><i class="far fa-calendar-alt me-1"></i>Berlaku s.d. 22 Des 2028</small>
+                                </div>
+                                <h5 class="card-title fw-bold text-dark mt-2">Java Fundamental Programming</h5>
+                                <p class="card-text text-secondary small mb-1">Penerima: <strong>Okta Via Wijayanti</strong></p>
+                                <p class="card-text text-secondary small">No. Sertifikat: <code>12202512220286</code></p>
+                            </div>
+                            <div class="mt-3 text-end border-top pt-3">
+                                <a href="https://getskill.id/certificate/12202512220286" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill fw-bold">
+                                    <i class="fas fa-check-circle me-1"></i>  
+                                    <div class="project-tags"> 
+                                      <span class="tag">Verifikasi Resmi</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+  <!-- Section Kontak / Mari Terhubung -->
+<section id="contact" style="padding: 4rem 1rem;">
+  <div class="glass-card" style="max-width: 650px; margin: 0 auto; padding: 2.5rem; text-align: center; border-radius: 20px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);">
+    
+    <h2 style="font-size: 2rem; font-weight: 700; color: #1e293b; margin-bottom: 0.5rem;">Mari Terhubung!</h2>
+    <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.5rem;">Terbuka untuk diskusi proyek, kolaborasi, atau sekadar bertanya.</p>
+
+    <!-- Tombol Kirim Email -->
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oktaimut17@gmail.com&su=Halo%20Okta%20-%20Diskusi%20Proyek" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background-color: #2563eb; color: white; border-radius: 30px; text-decoration: none; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); margin-bottom: 2rem;">
+      ✉ Kirim Pesan Email
+    </a>
+    <!-- Link Ikon Sosial Media (TikTok, GitHub, WhatsApp) -->
+    <div style="display: flex; justify-content: center; gap: 1rem;">
+      
+      <!-- 1. TikTok (Ganti username_tiktok dengan nama akunmu) -->
+      <a href="https://www.tiktok.com/@ochtaav..w" target="_blank" title="TikTok" style="width: 44px; height: 44px; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #0f172a; text-decoration: none; font-size: 1.2rem; transition: all 0.2s ease;">
+        <!-- Ikon SVG TikTok -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5c.28 0 .552.023.817.067V8.15A3 3 0 1 0 9 11V0z"/>
+        </svg>
+      </a>
+
+      <!-- 2. GitHub (Ganti username_github dengan nama akunmu) -->
+      <a href="https://github.com/oktaimut17-stack" target="_blank" title="GitHub" style="width: 44px; height: 44px; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #0f172a; text-decoration: none; font-size: 1.2rem; transition: all 0.2s ease;">
+        <!-- Ikon SVG GitHub -->
+        <svg xmlns="https://github.com/oktaimut17" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+      </a>
+
+      <!-- 3. WhatsApp (Ganti nomor 628xxxxxxxxxx dengan nomor WA-mu tanpa angka 0 di awal) -->
+      <a href="https://wa.me/6285258680192?text=Halo%20Okta,%20saya%20tertarik%20dengan%20portofolio%20Anda" target="_blank" title="WhatsApp" style="width: 44px; height: 44px; border-radius: 50%; background: #f1f5f9; display: flex; align-items: center; justify-content: center; color: #0f172a; text-decoration: none; font-size: 1.2rem; transition: all 0.2s ease;">
+        <!-- Ikon SVG WhatsApp -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.629.776-.117.133-.232.148-.43.05-.197-.099-.833-.307-1.586-.978-.587-.523-.984-1.17-1.1-1.368-.116-.198-.012-.304.087-.403.088-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007s-.346.05-.527.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.17-.478 1.338-.94.165-.462.165-.856.116-.94-.05-.083-.183-.133-.38-.232z"/>
+        </svg>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Okta Via Wijayanti. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
